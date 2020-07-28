@@ -4,10 +4,8 @@ import PropTypes from 'prop-types';
 import {Form, Input, Button} from 'antd';
 import styled from 'styled-components';
 import useInput from '../hooks/useInput';
-
-LoginForm.propTypes = {
-  setIsLoggedIn: PropTypes.func.isRequired
-};
+import { useDispatch } from 'react-redux';
+import {loginAction} from "../reducers/user";
 
 const ButtonWrapper = styled.div`
   marginTop: 10px;
@@ -16,13 +14,14 @@ const FormWrapper = styled(Form)`
   padding: 10px;
 `
 
-function LoginForm({ setIsLoggedIn }) {
+function LoginForm() {
   const [id, onChangeId] = useInput('');
   const [password, onChangePassword] = useInput('');
+  const dispatch = useDispatch();
 
   const onSubmitForm = useCallback(() => {
     console.log(id, password);
-    setIsLoggedIn(true);
+    dispatch(loginAction(id, password));
   },[id, password])
 
   return (

@@ -21,3 +21,10 @@
 _app.js 파일에 `import 'antd/dist/antd.css';`추가 
 2. styled-components / emotion 등등   
 `npm i styled-components`
+
+- Redux 설치
+next에서 리덕스 설치는 react와는 조금다르다    
+store / configureStore.js 추가    
+`npm i next-redux-wrapper`  
+`npm i redux`   
+`npm i react-redux`

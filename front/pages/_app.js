@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import 'antd/dist/antd.css';
 import Head from 'next/head'
 
+import wrapper from '../store/configureStore';
+
 _App.propTypes = {
   Component: PropTypes.elementType.isRequired
 };
@@ -19,4 +21,4 @@ function _App({ Component }) {
   );
 }
 
-export default _App;
+export default wrapper.withRedux(_App);
